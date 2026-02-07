@@ -1,0 +1,18 @@
+name: PA1.1 Grading 
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  grade:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install compiler
+        run: sudo apt-get update && sudo apt-get install -y g++
+
+      - name: Run PA1 autograder
+        run: python PA1_output_test.py
